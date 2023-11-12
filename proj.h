@@ -30,3 +30,4 @@ void filtrarPorEstado(struct Tarefa tarefas[], int numTarefas);
 void filtrarPorCategoria(struct Tarefa tarefas[], int numTarefas);
 void filtrarPorPrioridadeECategoria(struct Tarefa tarefas[], int numTarefas);
 void exportarPorPrioridade(struct Tarefa tarefas[], int numTarefas);
+void exportarPorCategoria(struct Tarefa tarefas[], int numTarefas);
