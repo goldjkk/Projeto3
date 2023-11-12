@@ -218,4 +218,27 @@ void exportarPorPrioridade(struct Tarefa tarefas[], int numTarefas) {
     fclose(arquivo);
     printf("Tarefas exportadas com sucesso!\n");
 }
+void exportarPorCategoria(struct Tarefa tarefas[], int numTarefas) {
+    char categoriaExportar[MAX_CATEGORIA];
+    printf("Digite a categoria desejada para exportar: ");
+    getchar(); // Limpa o buffer do teclado
+    fgets(categoriaExportar, sizeof(categoriaExportar), stdin);
+    categoriaExportar[strcspn(categoriaExportar, "\n")] = '\0'; // Remove a quebra de linha do fgets
+
+    FILE *arquivo = fopen("tarefas_por_categoria.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao criar o arquivo de exportacao.\n");
+        return;
+    }
+
+    fprintf(arquivo, "Tarefas com categoria %s:\n", categoriaExportar);
+    for (int i = 0; i < numTarefas; i++) {
+        if (strcmp(tarefas[i].categoria, categoriaExportar) == 0) {
+            fprintf(arquivo, "Descricao: %s, Prioridade: %d, Estado: %d\n", tarefas[i].descricao, tarefas[i].prioridade, tarefas[i].estado);
+        }
+    }
+
+    fclose(arquivo);
+    printf("Tarefas exportadas com sucesso!\n");
+}
 
