@@ -96,3 +96,47 @@ void deletarTarefa(struct Tarefa tarefas[], int *numTarefas) {
     (*numTarefas)--;
     printf("Tarefa deletada com sucesso!\n");
 }
+void alterarTarefa(struct Tarefa tarefas[], int numTarefas) {
+    int indice;
+    printf("Informe a tarefa que deseja alterar (1 a %d): ", numTarefas);
+    scanf("%d", &indice);
+
+    if (indice < 1 || indice > numTarefas) {
+        printf("Indice invalido. Informe um indice valido.\n");
+        return;
+    }
+
+    printf("Escolha o campo a ser alterado:\n");
+    printf("1. Prioridade\n");
+    printf("2. Descricao\n");
+    printf("3. Categoria\n");
+    printf("4. Estado\n");
+
+    int opcao;
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            printf("Nova prioridade: ");
+            scanf("%d", &tarefas[indice - 1].prioridade);
+            break;
+        case 2:
+            printf("Nova descricao: ");
+            getchar(); // Limpa o buffer do teclado
+            fgets(tarefas[indice - 1].descricao, sizeof(tarefas[indice - 1].descricao), stdin);
+            tarefas[indice - 1].descricao[strcspn(tarefas[indice - 1].descricao, "\n")] = '\0'; // Remove a quebra de linha do fgets
+            break;
+        case 3:
+            printf("Nova categoria: ");
+            getchar(); // Limpa o buffer do teclado
+            fgets(tarefas[indice - 1].categoria, sizeof(tarefas[indice - 1].categoria), stdin);
+            tarefas[indice - 1].categoria[strcspn(tarefas[indice - 1].categoria, "\n")] = '\0'; // Remove a quebra de linha do fgets
+            break;
+        case 4:
+            printf("Novo estado (0 - Nao Iniciado, 1 - Em Andamento, 2 - Completo): ");
+            scanf("%d", (int*)&tarefas[indice - 1].estado);
+            break;
+        default:
+            printf("Opcao invalida.\n");
+    }
+}
