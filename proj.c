@@ -178,3 +178,22 @@ void filtrarPorCategoria(struct Tarefa tarefas[], int numTarefas) {
         }
     }
 }
+oid filtrarPorPrioridadeECategoria(struct Tarefa tarefas[], int numTarefas) {
+    int prioridadeFiltro;
+    printf("Digite a prioridade desejada: ");
+    scanf("%d", &prioridadeFiltro);
+
+    char categoriaFiltro[MAX_CATEGORIA];
+    printf("Digite a categoria desejada: ");
+    getchar(); // Limpa o buffer do teclado
+    fgets(categoriaFiltro, sizeof(categoriaFiltro), stdin);
+    categoriaFiltro[strcspn(categoriaFiltro, "\n")] = '\0'; // Remove a quebra de linha do fgets
+
+    printf("Tarefas com prioridade %d e categoria %s:\n", prioridadeFiltro, categoriaFiltro);
+    for (int i = 0; i < numTarefas; i++) {
+        if (tarefas[i].prioridade == prioridadeFiltro && strcmp(tarefas[i].categoria, categoriaFiltro) == 0) {
+            printf("Descricao: %s, Estado: %d\n", tarefas[i].descricao, tarefas[i].estado);
+        }
+    }
+}
+
