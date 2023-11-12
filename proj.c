@@ -74,3 +74,25 @@ void listarTarefas(struct Tarefa tarefas[], int numTarefas) {
         printf("\n");
     }
 }
+void deletarTarefa(struct Tarefa tarefas[], int *numTarefas) {
+    if (*numTarefas == 0) {
+        printf("A lista de tarefas esta vazia. Nao ha tarefas para deletar.\n");
+        return;
+    }
+
+    int indice;
+    printf("Informe a tarefa que deseja deletar (1 a %d): ", *numTarefas);
+    scanf("%d", &indice);
+
+    if (indice < 1 || indice > *numTarefas) {
+        printf("Indice invalido. Informe um indice valido.\n");
+        return;
+    }
+
+    for (int i = indice - 1; i < *numTarefas - 1; i++) {
+        tarefas[i] = tarefas[i + 1];
+    }
+
+    (*numTarefas)--;
+    printf("Tarefa deletada com sucesso!\n");
+}
