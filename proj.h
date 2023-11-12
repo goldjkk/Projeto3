@@ -24,4 +24,4 @@ struct Tarefa {
 void cadastrarTarefa(struct Tarefa tarefas[], int *numTarefas);
 void listarTarefas(struct Tarefa tarefas[], int numTarefas);
 void deletarTarefa(struct Tarefa tarefas[], int *numTarefas);
-
+void alterarTarefa(struct Tarefa tarefas[], int numTarefas);
