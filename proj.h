@@ -31,3 +31,6 @@ void filtrarPorCategoria(struct Tarefa tarefas[], int numTarefas);
 void filtrarPorPrioridadeECategoria(struct Tarefa tarefas[], int numTarefas);
 void exportarPorPrioridade(struct Tarefa tarefas[], int numTarefas);
 void exportarPorCategoria(struct Tarefa tarefas[], int numTarefas);
+void exportarPorPrioridadeECategoria(struct Tarefa tarefas[], int numTarefas);
+
+#endif // PROJ_H
