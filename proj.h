@@ -26,3 +26,4 @@ void listarTarefas(struct Tarefa tarefas[], int numTarefas);
 void deletarTarefa(struct Tarefa tarefas[], int *numTarefas);
 void alterarTarefa(struct Tarefa tarefas[], int numTarefas);
 void filtrarPorPrioridade(struct Tarefa tarefas[], int numTarefas);
+void filtrarPorEstado(struct Tarefa tarefas[], int numTarefas);
